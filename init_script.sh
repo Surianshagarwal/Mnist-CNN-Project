@@ -1,16 +1,15 @@
-echo "A script to create, activate and install requirements"
-echo "........."
+#!/bin/bash
 
-virtualenv venv
+# Create virtual environment
+python3 -m venv env
 
-echo "creation of virtualenv done......"
-echo "Activation my env"
-source venv/bin/activate
+# Activate the environment
+source env/bin/activate
 
-echo ".........."
-echo "install requiremtnts.txt"
-pip install -r requirements.txt
+# Install packages (add your own here)
+pip install -r requirements_dev.txt
+# Freeze requirements
+pip freeze > project_library.txt
 
-sleep(2)
-echo "install done"
-echo "Creation activation and install of library done"
+echo "Environment created and activated."
+echo "requirements.txt generated."
